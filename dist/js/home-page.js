@@ -86,10 +86,10 @@
 /************************************************************************/
 /******/ ({
 
-/***/ "./src/js/components/_grid.js":
-/*!************************************!*\
-  !*** ./src/js/components/_grid.js ***!
-  \************************************/
+/***/ "./src/scripts/components/_grid.ts":
+/*!*****************************************!*\
+  !*** ./src/scripts/components/_grid.ts ***!
+  \*****************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -102,17 +102,17 @@ const renderGrid = () => {// TODO: implement code to Render grid
 
 /***/ }),
 
-/***/ "./src/js/pages/home-page.js":
-/*!***********************************!*\
-  !*** ./src/js/pages/home-page.js ***!
-  \***********************************/
+/***/ "./src/scripts/pages/home-page.ts":
+/*!****************************************!*\
+  !*** ./src/scripts/pages/home-page.ts ***!
+  \****************************************/
 /*! no exports provided */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _utilities_helper__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../utilities/_helper */ "./src/js/utilities/_helper.js");
-/* harmony import */ var _components_grid__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../components/_grid */ "./src/js/components/_grid.js");
+/* harmony import */ var _utilities_helper__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../utilities/_helper */ "./src/scripts/utilities/_helper.ts");
+/* harmony import */ var _components_grid__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../components/_grid */ "./src/scripts/components/_grid.ts");
 
 
 Object(_utilities_helper__WEBPACK_IMPORTED_MODULE_0__["default"])(() => {
@@ -121,10 +121,10 @@ Object(_utilities_helper__WEBPACK_IMPORTED_MODULE_0__["default"])(() => {
 
 /***/ }),
 
-/***/ "./src/js/utilities/_helper.js":
-/*!*************************************!*\
-  !*** ./src/js/utilities/_helper.js ***!
-  \*************************************/
+/***/ "./src/scripts/utilities/_helper.ts":
+/*!******************************************!*\
+  !*** ./src/scripts/utilities/_helper.ts ***!
+  \******************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -142,10 +142,10 @@ const ready = fn => {
 
 /***/ }),
 
-/***/ "./src/scss/pages/home-page.scss":
-/*!***************************************!*\
-  !*** ./src/scss/pages/home-page.scss ***!
-  \***************************************/
+/***/ "./src/styles/pages/home-page.scss":
+/*!*****************************************!*\
+  !*** ./src/styles/pages/home-page.scss ***!
+  \*****************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -154,14 +154,14 @@ const ready = fn => {
 /***/ }),
 
 /***/ 0:
-/*!*************************************************************************!*\
-  !*** multi ./src/js/pages/home-page.js ./src/scss/pages/home-page.scss ***!
-  \*************************************************************************/
+/*!********************************************************************************!*\
+  !*** multi ./src/scripts/pages/home-page.ts ./src/styles/pages/home-page.scss ***!
+  \********************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! ./src/js/pages/home-page.js */"./src/js/pages/home-page.js");
-module.exports = __webpack_require__(/*! ./src/scss/pages/home-page.scss */"./src/scss/pages/home-page.scss");
+__webpack_require__(/*! ./src/scripts/pages/home-page.ts */"./src/scripts/pages/home-page.ts");
+module.exports = __webpack_require__(/*! ./src/styles/pages/home-page.scss */"./src/styles/pages/home-page.scss");
 
 
 /***/ })

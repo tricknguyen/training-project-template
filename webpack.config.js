@@ -8,12 +8,14 @@ const NyanProgressPlugin = require('nyan-progress-webpack-plugin');
 
 const getEntries = function() {
   return glob
-    .sync('./src/{scripts/pages,styles/pages}/**/!(_)*.{scss,js}')
+    .sync(
+      './src/{scripts/pages,styles/pages}/**/!(_)*.{scss,js,ts,tsx}',
+    )
     .reduce((entries, entry) => {
       const key = entry
         .split('/')
         .pop()
-        .replace(/.scss|.js/gi, '');
+        .replace(/.scss|.js|.ts|.tsx/gi, '');
       let localEntries = { ...entries };
       if (key in entries) {
         localEntries[key].push(entry);
@@ -46,7 +48,7 @@ const commonConfig = {
   output: {
     filename: 'js/[name].js',
     chunkFilename: '[name].bundle.js?ver=[chunkhash]',
-    path: path.join(__dirname, '/dist/js'),
+    path: path.join(__dirname, '/dist/'),
   },
 
   resolve: {
@@ -57,7 +59,7 @@ const commonConfig = {
     rules: [
       {
         enforce: 'pre',
-        test: /\.(js)?$/,
+        test: /\.(ts|js)?$/,
         exclude: /node_modules/,
         loader: 'eslint-loader',
         options: {
@@ -65,12 +67,12 @@ const commonConfig = {
         },
       },
       {
-        test: /\.(js)?$/,
+        test: /\.(ts|js)?$/,
         exclude: /node_modules/,
         loader: 'babel-loader',
       },
       {
-        test: /\.tsx?$/,
+        test: /\.(ts|tsx)?$/,
         use: 'ts-loader',
         exclude: /node_modules/,
       },
