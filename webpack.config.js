@@ -8,7 +8,7 @@ const NyanProgressPlugin = require('nyan-progress-webpack-plugin');
 
 const getEntries = function() {
   return glob
-    .sync('./src/{js/pages,scss/pages}/**/!(_)*.{scss,js}')
+    .sync('./src/{scripts/pages,styles/pages}/**/!(_)*.{scss,js}')
     .reduce((entries, entry) => {
       const key = entry
         .split('/')
@@ -50,7 +50,7 @@ const commonConfig = {
   },
 
   resolve: {
-    extensions: ['.js'],
+    extensions: ['.tsx', '.ts', '.js'],
   },
 
   module: {
@@ -68,6 +68,11 @@ const commonConfig = {
         test: /\.(js)?$/,
         exclude: /node_modules/,
         loader: 'babel-loader',
+      },
+      {
+        test: /\.tsx?$/,
+        use: 'ts-loader',
+        exclude: /node_modules/,
       },
       {
         test: /\.scss$/,
