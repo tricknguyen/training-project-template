@@ -1,4 +1,4 @@
-# training-project-template
+# Training project template manual
 - Create your own github account
 - Fork this repository to your account repository
 - Clone project repository from your account to local
