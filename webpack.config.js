@@ -2,12 +2,13 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const FixStyleOnlyEntriesPlugin = require('webpack-fix-style-only-entries');
 const path = require('path');
 const glob = require('glob');
+const sass = require('sass');
 const LiveReloadPlugin = require('webpack-livereload-plugin');
 const NyanProgressPlugin = require('nyan-progress-webpack-plugin');
 
 const getEntries = function() {
   return glob
-    .sync('./{Styles,Scripts/pages}/**/!(_)*.{scss,js}')
+    .sync('./src/{js/pages,scss/pages}/**/!(_)*.{scss,js}')
     .reduce((entries, entry) => {
       const key = entry
         .split('/')
@@ -55,6 +56,20 @@ const commonConfig = {
   module: {
     rules: [
       {
+        enforce: 'pre',
+        test: /\.(js)?$/,
+        exclude: /node_modules/,
+        loader: 'eslint-loader',
+        options: {
+          fix: true,
+        },
+      },
+      {
+        test: /\.(js)?$/,
+        exclude: /node_modules/,
+        loader: 'babel-loader',
+      },
+      {
         test: /\.scss$/,
         use: [
           MiniCssExtractPlugin.loader,
@@ -64,7 +79,7 @@ const commonConfig = {
           {
             loader: 'sass-loader',
             options: {
-              implementation: require('sass'),
+              implementation: sass,
             },
           },
         ],
