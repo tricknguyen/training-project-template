@@ -1,2 +1,232 @@
 // Home page styles
 @import "master-page";
+
+$text-font: "Segoe UI", "Segoe UI Web (West European)", "Segoe UI", -apple-system, BlinkMacSystemFont, Roboto, "Helvetica Neue", sans-serif;
+$text-size: 14px;
+
+.navbar{
+    font-family: $text-font;
+    font-size: $text-size;
+    background-color: rgba(192,193,197,1);
+    color: black;
+    
+    .feature{
+        display: none;
+    }
+
+    .navbar-nav{
+        padding-left: 24px !important;
+        display: flex;
+        flex-wrap: wrap;
+       
+
+        .nav-link{
+            margin-right: 16px;
+            padding: 0 4px !important;
+
+            span{
+                margin: 0 4px;
+            }
+                   
+        }        
+    }
+
+    button{
+        margin-left: 80%;
+    }
+}
+
+/*---NAV-MOBILE*/
+.nav_mobile{
+    position: fixed;
+    top: 56px;
+    right: 0;
+    width: 100%;
+    bottom: 61%;
+    background-color: #ececec;
+    transform: translateX(100%);
+    opacity: 0;
+    transition: transform linear 0.2s, opacity linear 0.2s;
+
+    .nav_mobile-list{
+        margin-bottom: 0px;
+        padding-left: 0px;
+        display: flex;
+        flex-direction: column;
+        .nav_mobile-link{
+            font-family: $text-font;
+            font-size: $text-size;
+            color: rgba(0,0,0,.9);
+            display: block;
+            padding: 8px 0;
+            padding-left: 20px;
+            i{
+                width: 14px;
+                height: 14px;
+            }
+        }
+        /*li{
+            display: flex;
+            flex-direction: column;
+        }*/
+        .nav_mobile-link:hover{
+            background-color: #8f8d8d;
+        }
+    }
+
+}
+
+.nav_input:checked ~ .nav_mobile{
+    transform: translateX(0%);
+    opacity: 1;
+}
+
+@media (max-width: 768px){
+    .navbar{
+        display: none;
+    }
+    .nav_mobile{
+        z-index: 1;
+    }
+}
+
+
+section{
+    padding: 40px 12px 40px 75px !important;
+
+    font-family: $text-font;
+    font-size: $text-size * 2;
+    color: rgba(0,0,0,.55);
+}
+
+i{
+    font-size: 14px;
+    margin: 0 4px;
+}
+img{
+    width: 16px;
+    height: 15px;
+    margin: 0 4px;
+}
+
+@media (max-width: 768px) {
+    section {
+        padding: 5px 15px 5px 10px !important;
+        font-size: 20px;
+        margin: 10px 0 10px 0;
+    }
+}
+
+.ms-Icon--ChevronDown{
+    margin: 1px 4px 0px 6px;
+    font-size: 12px;
+}
+
+.aside-pc{
+    font-family: $text-font;
+    font-size: $text-size;
+    display: flex;
+    //color: #7b7a78;
+
+    .container-fluid{
+        margin-left: 73px;
+        margin-right: 1px !important;
+        .row{  
+            padding : 8px 8px;
+            .icon{
+                width: 40px !important;
+            }
+    
+            .name{
+                width: 370px !important;
+            }
+    
+            .space{
+                width: 40px !important;
+            }
+
+            .modify{
+                width: 170px !important;
+            }
+
+            .flex-box{
+                display: flex;
+                justify-content: flex-start;
+                align-items: center;
+                flex-wrap: wrap;
+            }
+           
+        }
+
+        #row-1{
+            border-bottom: 1px solid rgba(192,193,197,1);                                     
+        }
+
+        #row-2{
+            border-bottom: 1px solid #e3e4e7;
+            padding: 15px 8px 15px 8px;  
+            .modify{
+                span{
+                    color: #7b7a78;
+                }
+            }                                
+        }
+
+        @for $j from 3 to 7{
+            #row-#{$j}{
+                @extend #row-2;
+            }
+         
+        }       
+    }
+   
+}
+
+/*-----ASIDE MOBILE-----*/
+.aside-mobile{
+    display: none;
+}
+
+@media (max-width: 768px){
+    .aside-pc{
+        display: none;
+    }
+    .aside-mobile{
+        z-index: -1;
+        display: flex;   
+        font-size: 10px;
+        flex-direction: column;
+        
+        .span-title{
+            font-weight: 700;
+            font-style: italic;
+        }
+
+        .card{
+            margin: 0 5px 15px 5px;
+            
+            .card-item-header{      
+                margin-top: 0;         
+               img{
+                    margin: 0 4px 2px 82%;
+               }
+               border: 1px solid rgba(192,193,197,1);
+               padding: 8px 0 8px 5px;
+               background-color: #dbdcdc;
+               display: flex;
+
+            }
+            .card-item{
+                border-left:1px solid rgba(192,193,197,1);
+                border-bottom: 1px solid rgba(192,193,197,1);
+                margin-left: 0.1px;
+                margin-right: 0.8px;
+                padding: 8px 10px 8px 6px !important;
+                
+            }
+           
+        }
+    }
+}
+
+
