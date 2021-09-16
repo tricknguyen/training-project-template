@@ -1,1 +1,109 @@
 // Grid styles
+@import '../utilities/variables';
+
+.aside-pc{
+    font-family: $text-font;
+    font-size: $text-size;
+    display: flex;
+    padding-top: 0 !important;
+
+    .container-fluid{
+        margin-left: 73px;
+        margin-right: 1px !important;
+        .row{  
+            padding : 8px 8px;
+            .icon{
+                width: 40px !important;
+            }
+    
+            .name{
+                width: 370px !important;
+            }
+    
+            .space{
+                width: 40px !important;
+            }
+
+            .modify{
+                width: 170px !important;
+            }
+
+            .flex-box{
+                display: flex;
+                justify-content: flex-start;
+                align-items: center;
+                flex-wrap: wrap;
+            }
+           
+        }
+
+        #row-1{
+            border-bottom: 1px solid $color-silver;                                     
+        }
+
+        #row-2{
+            border-bottom: 1px solid #e3e4e7;
+            padding: 15px 8px 15px 8px;  
+            .modify{
+                span{
+                    color: #7b7a78;
+                }
+            }                                
+        }
+
+        @for $j from 3 to 7{
+            #row-#{$j}{
+                @extend #row-2;
+            }
+         
+        }       
+    }
+   
+}
+
+/*-----ASIDE MOBILE-----*/
+.aside-mobile{
+    display: none;
+}
+
+@media (max-width: 768px){
+    .aside-pc{
+        display: none;
+    }
+    .aside-mobile{
+        z-index: -1;
+        display: flex;   
+        font-size: 10px;
+        flex-direction: column;
+        
+        .span-title{
+            font-weight: 700;
+            font-style: italic;
+        }
+
+        .card{
+            margin: 0 5px 15px 5px;
+            
+            .card-item-header{      
+                margin-top: 0;         
+               img{
+                    margin: 0 4px 2px 82%;
+               }
+               border: 1px solid $color-silver;
+               padding: 8px 0 8px 5px;
+               background-color: #dbdcdc;
+               display: flex;
+
+            }
+            .card-item{
+                border-left:1px solid $color-silver;
+                border-bottom: 1px solid $color-silver;
+                margin-left: 0.1px;
+                margin-right: 0.8px;
+                padding: 8px 10px 8px 6px !important;
+                
+            }
+           
+        }
+    }
+}

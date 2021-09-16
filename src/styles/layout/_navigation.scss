@@ -1,1 +1,83 @@
 // Navigation styles
+@import '../utilities/variables';
+
+/*SCREEN PC*/
+.navbar{
+    font-family: $text-font;
+    font-size: $text-size;
+    background-color: $color-silver;
+    color: black;
+    
+    .feature{
+        display: none;
+    }
+
+    .navbar-nav{
+        padding-left: 24px !important;
+        display: flex;
+        flex-wrap: wrap;
+       
+
+        .nav-link{
+            margin-right: 16px;
+            padding: 0 4px !important;
+
+            span{
+                margin: 0 4px;
+            }
+                   
+        }        
+    }
+
+    button{
+        margin-left: 80%;
+    }
+}
+/*---NAV-MOBILE*/
+.nav_mobile{
+    position: fixed;
+    top: 56px;
+    right: 0;
+    width: 100%;
+    bottom: 61%;
+    background-color: #ececec;
+    transform: translateX(100%);
+    opacity: 0;
+    transition: transform linear 0.2s, opacity linear 0.2s;
+
+    .nav_mobile-list{
+        margin-bottom: 0px;
+        padding-left: 0px;
+        display: flex;
+        flex-direction: column;
+        .nav_mobile-link{
+            font-family: $text-font;
+            font-size: $text-size;
+            color: rgba(0,0,0,.9);
+            display: block;
+            padding: 8px 0;
+            padding-left: 20px;
+            i{
+                width: 14px;
+                height: 14px;
+            }
+        }
+        .nav_mobile-link:hover{
+            background-color: #8f8d8d;
+        }
+    }
+}
+/*DROP DOWN*/
+.nav_input:checked ~ .nav_mobile{
+    transform: translateX(0%);
+    opacity: 1;
+}
+
+@media (max-width: 768px){
+    .navbar{
+        display: none;
+    }
+    .nav_mobile{
+        z-index: 1;
+    }
+}
