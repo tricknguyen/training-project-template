@@ -364,6 +364,62 @@ template {
   margin-left: 80%;
 }
 
+#btnCreate {
+  float: right;
+}
+
+#createContent {
+  display: none;
+}
+#createContent label {
+  margin-bottom: 5px;
+  margin-top: 5px;
+}
+
+.dropdown-content {
+  display: none;
+  outline: none;
+  max-height: 830px;
+  position: relative;
+  border-radius: 4px;
+  background: white;
+  box-sizing: border-box;
+  font-size: 14px;
+  width: 160px;
+  padding-left: 44px;
+  box-shadow: rgba(0, 0, 0, 0.11) 0px 1.2px 3.6px, rgba(0, 0, 0, 0.13) 0px 6.4px 14.4px;
+  margin-left: 37px;
+  margin-bottom: 0px;
+  padding-left: 10px;
+  z-index: 1;
+}
+.dropdown-content .content {
+  padding-left: 0px;
+}
+.dropdown-content .content li {
+  list-style-type: none;
+  height: 32px;
+}
+.dropdown-content .content li button {
+  background-color: transparent;
+  border: none;
+  width: 100%;
+  height: 32px;
+  line-height: 32px;
+  display: block;
+  cursor: pointer;
+  text-align: left;
+  padding-left: 0px;
+}
+.dropdown-content .content li button span {
+  margin-left: 6px;
+}
+
+.nav_input2:checked ~ .dropdown-content {
+  display: block;
+  z-index: 1;
+}
+
 /*---NAV-MOBILE*/
 .nav_mobile {
   position: fixed;
@@ -425,6 +481,7 @@ template {
 }
 .aside-pc .container-fluid .row {
   padding: 8px 8px;
+  color: black;
 }
 .aside-pc .container-fluid .row .icon {
   width: 40px !important;
@@ -443,6 +500,9 @@ template {
   justify-content: flex-start;
   align-items: center;
   flex-wrap: wrap;
+}
+.aside-pc .container-fluid .row .flex-box span:hover {
+  text-decoration: underline !important;
 }
 .aside-pc .container-fluid #row-1 {
   border-bottom: 1px solid #c0c1c5;
@@ -480,7 +540,7 @@ template {
   .aside-mobile .card .card-item-header {
     margin-top: 0;
     border: 1px solid #c0c1c5;
-    padding: 8px 0 8px 5px;
+    padding: 8px 0 8px 18px;
     background-color: #dbdcdc;
     display: flex;
   }
@@ -495,11 +555,16 @@ template {
     padding: 8px 10px 8px 6px !important;
   }
 }
+.main-content {
+  z-index: -1;
+}
+
 section {
   padding: 40px 12px 40px 75px !important;
   font-family: "Segoe UI", "Segoe UI Web (West European)", "Segoe UI", -apple-system, BlinkMacSystemFont, Roboto, "Helvetica Neue", sans-serif;
   font-size: 28px;
   color: rgba(0, 0, 0, 0.55);
+  z-index: -1;
 }
 
 i {

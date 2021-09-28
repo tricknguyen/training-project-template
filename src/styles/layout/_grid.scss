@@ -12,6 +12,7 @@
         margin-right: 1px !important;
         .row{  
             padding : 8px 8px;
+            color: black;
             .icon{
                 width: 40px !important;
             }
@@ -33,6 +34,9 @@
                 justify-content: flex-start;
                 align-items: center;
                 flex-wrap: wrap;
+                span:hover{
+                    text-decoration: underline !important;
+                }
             }
            
         }
@@ -90,7 +94,7 @@
                     margin: 0 4px 2px 82%;
                }
                border: 1px solid $color-silver;
-               padding: 8px 0 8px 5px;
+               padding: 8px 0 8px 18px;
                background-color: #dbdcdc;
                display: flex;
 

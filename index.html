@@ -10,6 +10,10 @@
         integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
     <link rel="stylesheet"
         href="https://static2.sharepointonline.com/files/fabric/office-ui-fabric-core/9.6.1/css/fabric.min.css">
+    <script src="/training-project-template/dist/js/home-page.js"></script>
+    
+    <script src="./show.js"></script>
+
 </head>
 
 <body>
@@ -26,11 +30,11 @@
                 <div class="collapse navbar-collapse" id="navbarNav">
                     <ul class="navbar-nav">
                         <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" href="#">
+                            <label class="nav-link active" aria-current="page" for="checkbox_id2" id="new">
                                 <i class="ms-Icon ms-Icon--Add ms-fontColor-magentaLight"></i>
                                 <span>New</span>
                                 <i class="ms-Icon ms-Icon--ChevronDown ms-fontColor-neutralSecondaryAlt"></i>
-                            </a>
+                            </label>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link active" href="#">
@@ -68,6 +72,61 @@
             </label>
         </nav>
 
+        <input type="checkbox" hidden name="checkbox2" id="checkbox_id2" value="value" class="nav_input2">
+
+        <div class="dropdown-content">
+            <ul class="content">
+                <li>
+                    <button>
+                        <div onclick="Openform()">
+                            <img src="https://spoprod-a.akamaihd.net/files/fabric/assets/item-types/20/folder.svg?v6"
+                                width="16px" height="16px">
+                            <span>Folder</span>
+                        </div>
+                    </button>
+                </li>
+                <li>
+                    <button>
+                        <div>
+                            <img src="https://spoprod-a.akamaihd.net/files/fabric/assets/item-types/16_1.5x/docx.svg?v6"
+                                width="16px" height="16px">
+                            <span>Word</span>
+                        </div>
+                    </button>
+                </li>
+                <li>
+                    <button>
+                        <div>
+                            <img src="https://spoprod-a.akamaihd.net/files/fabric/assets/item-types/16_1.5x/xlsx.svg?v6"
+                                width="16px" height="16px">
+                            <span>Excel</span>
+                        </div>
+                    </button>
+                </li>
+            </ul>
+        </div>
+
+        <div class="container" id="createContent">
+            <div class="row">
+                <div class="col-4">
+                    <label>Name</label>
+                    <input type="text" class="form-control" id="txtName">
+                </div>
+                <div class="col-4">
+                    <label>Modify</label>
+                    <input type="text" class="form-control" id="txtModify">
+                </div>
+                <div class="col-4">
+                    <label>Modify By</label>
+                    <input type="text" class="form-control" id="txtModifyBy">
+                </div>
+                <div class="col-12">
+                    <button id="btnCreate" type="button" class="btn btn-success" >Create</button>
+                    <button id="btnEdit" style="display: none;" type="button" class="btn btn-success" >Edit</button>
+                </div>
+            </div>
+        </div>
+
         <!-- NAV MOBILE-->
 
         <input type="checkbox" hidden name="checkbox" id="checkbox_id" value="value" class="nav_input">
@@ -90,7 +149,7 @@
                     <span>Sync</span>
                 </div>
                 <div class="nav_mobile-link">
-                    <img src="src/styles/pages/logo_excel.png" alt="Logo_excel" >
+                    <img src="src/styles/pages/logo_excel.png" alt="Logo_excel">
                     <span>Export to Excel</span>
                 </div>
                 <div class="nav_mobile-link">
@@ -107,182 +166,59 @@
 
     </header>
 
-    <section class="container-fluid">
-        <article>
-            <span>Documents</span>
-        </article>
-    </section>
+    <div class="main-content">
+        <section class="container-fluid">
+            <article>
+                <span>Documents</span>
+            </article>
+        </section>
 
-    <section class="aside-pc">
-        <!--PC-->
-        <div class="container-fluid">
-            <div class="row" id="row-1">
-                <div class="col-1 space"></div>
-                <div class="col-1 icon">
-                    <i class="ms-Icon ms-Icon--Page ms-fontColor-black"></i>
+        <section class="aside-pc">
+            <!--PC-->
+            <div class="container-fluid">
+                <div class="row" id="row-1">
+                    <div class="col-1 space"></div>
+                    <div class="col-1 icon">
+                        <i class="ms-Icon ms-Icon--Page ms-fontColor-black"></i>
+                    </div>
+                    <div class="col-3 name">
+                        <span class="flex-box">
+                            <span>Name</span>
+                            <i class="ms-Icon ms-Icon--ChevronDown ms-fontColor-neutralSecondaryAlt"></i>
+                        </span>
+                    </div>
+                    <div class="col-2 modify">
+                        <span class="flex-box">
+                            <span>Modify</span>
+                            <i class="ms-Icon ms-Icon--ChevronDown ms-fontColor-neutralSecondaryAlt"></i>
+                        </span>
+                    </div>
+                    <div class="col-2 modify">
+                        <span class="flex-box">
+                            <span>Modify By</span>
+                            <i class="ms-Icon ms-Icon--ChevronDown ms-fontColor-neutralSecondaryAlt"></i>
+                        </span>
+                    </div>
+                    <div class="col option">
+                        <span class="flex-box">
+                            <i class="ms-Icon ms-Icon--Add ms-fontColor-black"></i>
+                            <span>Add column</span>
+                        </span>
+                    </div>
                 </div>
-                <div class="col-3 name">
-                    <span class="flex-box">
-                        <span>Name</span>
-                        <i class="ms-Icon ms-Icon--ChevronDown ms-fontColor-neutralSecondaryAlt"></i>
-                    </span>
+                <div id="tbData">
+                    
                 </div>
-                <div class="col-2 modify">
-                    <span class="flex-box">
-                        <span>Modify</span>
-                        <i class="ms-Icon ms-Icon--ChevronDown ms-fontColor-neutralSecondaryAlt"></i>
-                    </span>
-                </div>
-                <div class="col-2 modify">
-                    <span class="flex-box">
-                        <span>Modify By</span>
-                        <i class="ms-Icon ms-Icon--ChevronDown ms-fontColor-neutralSecondaryAlt"></i>
-                    </span>
-                </div>
-                <div class="col option">
-                    <span class="flex-box">
-                        <i class="ms-Icon ms-Icon--Add ms-fontColor-black"></i>
-                        <span>Add column</span>
-                    </span>
-                </div>
+               
             </div>
-            <div class="row" id="row-2">
-                <div class="col-1 space"></div>
-                <div class="col-1 icon">
-                    <img src="https://spoprod-a.akamaihd.net/files/fabric/assets/item-types/20/folder.svg?v6"
-                        width="16px" height="16px">
-                </div>
-                <div class="col-3 name">
-                    <span class="flex-box">
-                        <span>CAS</span>
+        
 
-                    </span>
-                </div>
-                <div class="col-2 modify">
-                    <span class="flex-box">
-                        <span>April 30</span>
-                    </span>
-                </div>
-                <div class="col-2 modify">
-                    <span class="flex-box">
-                        <span>Megan Bowen</span>
-                    </span>
-                </div>
-                <div class="col option">
-                    <span class="flex-box">
+        </section>
+    </div>
 
-                    </span>
-                </div>
-            </div>
-            <div class="row" id="row-3">
-                <div class="col-1 space"></div>
-                <div class="col-1 icon">
-                    <img src="https://spoprod-a.akamaihd.net/files/fabric/assets/item-types/20/xlsx.svg?v6" width="20px"
-                        height="20px">
-                </div>
-                <div class="col-3 name">
-                    <span class="flex-box">
-                        <span>CoasterAndBargeLoading.xlsx</span>
-                    </span>
-                </div>
-                <div class="col-2 modify">
-                    <span class="flex-box">
-                        <span>A few seconds ago</span>
-                    </span>
-                </div>
-                <div class="col-2 modify">
-                    <span class="flex-box">
-                        <span>Administrator MOD</span>
-                    </span>
-                </div>
-                <div class="col option">
-                    <span class="flex-box">
-                    </span>
-                </div>
-            </div>
-            <div class="row" id="row-4">
-                <div class="col-1 space"></div>
-                <div class="col-1 icon">
-                    <img src="https://spoprod-a.akamaihd.net/files/fabric/assets/item-types/20/xlsx.svg?v6" width="20px"
-                        height="20px">
-                </div>
-                <div class="col-3 name">
-                    <span class="flex-box">
-                        <span>RevernueByServices.xlsx</span>
-                    </span>
-                </div>
-                <div class="col-2 modify">
-                    <span class="flex-box">
-                        <span>A few seconds ago</span>
-                    </span>
-                </div>
-                <div class="col-2 modify">
-                    <span class="flex-box">
-                        <span>Administrator MOD</span>
-                    </span>
-                </div>
-                <div class="col option">
-                    <span class="flex-box">
-                    </span>
-                </div>
-            </div>
-            <div class="row" id="row-5">
-                <div class="col-1 space"></div>
-                <div class="col-1 icon">
-                    <img src="https://spoprod-a.akamaihd.net/files/fabric/assets/item-types/20/xlsx.svg?v6" width="20px"
-                        height="20px">
-                </div>
-                <div class="col-3 name">
-                    <span class="flex-box">
-                        <span>RevernueByServices2016.xlsx</span>
-                    </span>
-                </div>
-                <div class="col-2 modify">
-                    <span class="flex-box">
-                        <span>A few seconds ago</span>
-                    </span>
-                </div>
-                <div class="col-2 modify">
-                    <span class="flex-box">
-                        <span>Administrator MOD</span>
-                    </span>
-                </div>
-                <div class="col option">
-                    <span class="flex-box">
-                    </span>
-                </div>
-            </div>
-            <div class="row" id="row-6">
-                <div class="col-1 space"></div>
-                <div class="col-1 icon">
-                    <img src="https://spoprod-a.akamaihd.net/files/fabric/assets/item-types/20/xlsx.svg?v6" width="20px"
-                        height="20px">
-                </div>
-                <div class="col-3 name">
-                    <span class="flex-box">
-                        <span>RevernueByServices2017.xlsx</span>
-                    </span>
-                </div>
-                <div class="col-2 modify">
-                    <span class="flex-box">
-                        <span>A few seconds ago</span>
-                    </span>
-                </div>
-                <div class="col-2 modify">
-                    <span class="flex-box">
-                        <span>Administrator MOD</span>
-                    </span>
-                </div>
-                <div class="col option">
-                    <span class="flex-box">
-                    </span>
-                </div>
-            </div>
-        </div>
-
-       
-    </section>
-
+   
+    
+    
     <section class="aside-mobile">
 
         <div class="card">
@@ -302,13 +238,13 @@
             <div class="card-item row">
                 <span class="span-title col-3">Modified By</span>
                 <span class="span-content col-8">Megan Bowen</span>
-            </div>          
+            </div>
         </div>
         <div class="card">
             <div class="card-item-header">
                 <span class="span-title">File Type</span>
                 <img src="https://spoprod-a.akamaihd.net/files/fabric/assets/item-types/20/xlsx.svg?v6" width="16px"
-                        height="16px">
+                    height="16px">
             </div>
             <div class="card-item row">
                 <span class="span-title col-3">Name</span>
@@ -321,13 +257,13 @@
             <div class="card-item row">
                 <span class="span-title col-3">Modified By</span>
                 <span class="span-content col-8">Administrator MOD</span>
-            </div>    
+            </div>
         </div>
         <div class="card">
             <div class="card-item-header">
                 <span class="span-title">File Type</span>
                 <img src="https://spoprod-a.akamaihd.net/files/fabric/assets/item-types/20/xlsx.svg?v6" width="16px"
-                        height="16px">
+                    height="16px">
             </div>
             <div class="card-item row">
                 <span class="span-title col-3">Name</span>
@@ -340,13 +276,13 @@
             <div class="card-item row">
                 <span class="span-title col-3">Modified By</span>
                 <span class="span-content col-8">Administrator MOD</span>
-            </div>    
+            </div>
         </div>
         <div class="card">
             <div class="card-item-header">
                 <span class="span-title">File Type</span>
                 <img src="https://spoprod-a.akamaihd.net/files/fabric/assets/item-types/20/xlsx.svg?v6" width="16px"
-                        height="16px">
+                    height="16px">
             </div>
             <div class="card-item row">
                 <span class="span-title col-3">Name</span>
@@ -359,13 +295,13 @@
             <div class="card-item row">
                 <span class="span-title col-3">Modified By</span>
                 <span class="span-content col-8">Administrator MOD</span>
-            </div>    
+            </div>
         </div>
         <div class="card">
             <div class="card-item-header">
                 <span class="span-title">File Type</span>
                 <img src="https://spoprod-a.akamaihd.net/files/fabric/assets/item-types/20/xlsx.svg?v6" width="16px"
-                        height="16px">
+                    height="16px">
             </div>
             <div class="card-item row">
                 <span class="span-title col-3">Name</span>
@@ -373,12 +309,12 @@
             </div>
             <div class="card-item row">
                 <span class="span-title col-3">Modified</span>
-                <span class="span-content col-8">A few seconds ago  </span>
+                <span class="span-content col-8">A few seconds ago </span>
             </div>
             <div class="card-item row">
                 <span class="span-title col-3">Modified By</span>
                 <span class="span-content col-8">Administrator MOD</span>
-            </div>    
+            </div>
         </div>
     </section>
 </body>

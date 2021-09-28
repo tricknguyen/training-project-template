@@ -1,17 +1,21 @@
 // Home page styles
 @import "master-page";
 
+.main-content{
+    z-index: -1;
+}
 section{
     padding: 40px 12px 40px 75px !important;
-
     font-family: $text-font;
     font-size: $text-size * 2;
     color: rgba(0,0,0,.55);
+    z-index: -1;
 }
 
 i{
     font-size: $text-font;
     margin: 0 4px;
+   
 }
 img{
     width: 16px;
@@ -20,6 +24,7 @@ img{
 }
 
 @media (max-width: 768px) {
+   
     section {
         padding: 5px 15px 5px 10px !important;
         font-size: 20px;
